@@ -9,3 +9,5 @@ gem 'jquery-rails'
 group :test do
   gem 'rspec-rails'
 end
+
+ruby '2.0.0'
