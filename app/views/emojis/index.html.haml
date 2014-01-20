@@ -1,0 +1,50 @@
+.container
+  .content
+    .row
+      .jumbotron
+        %h1 Tortue
+        %p Free emoji for everyone.
+
+    .row
+      .details
+        %p
+          Hello. It appears you have stumbled upon Tortue, a site for free hosted emoji. The emoji are hosted on
+          Heroku with a Cloudflare CDN. If you want to give your users some delightful emoji, you can hotlink
+          (you can trust me) like so:
+
+        %p
+          = link_to "http://www.tortue.me/emoji/turtle.png", "www.tortue.me/emoji/turtle.png"
+
+        %p
+          The available emoji are listed below. If you're interested in converting emoji strings to emoji images, see
+          = link_to "github.com/austenito/emojify-cdn", "emojify-cdn"
+
+    .row
+      %h1 People
+      - @emoji_collection.by_category("people").each_slice(4).each do |emojis|
+        .col-sm-3
+          = render partial: "emoji", collection: emojis
+
+    .row
+      %h1 Nature
+      - @emoji_collection.by_category("nature").each_slice(4).each do |emojis|
+        .col-sm-3
+          = render partial: "emoji", collection: emojis
+
+    .row
+      %h1 Objects
+      - @emoji_collection.by_category("objects").each_slice(4).each do |emojis|
+        .col-sm-3
+          = render partial: "emoji", collection: emojis
+
+    .row
+      %h1 Places
+      - @emoji_collection.by_category("places").each_slice(4).each do |emojis|
+        .col-sm-3
+          = render partial: "emoji", collection: emojis
+
+    .row
+      %h1 Symbols
+      - @emoji_collection.by_category("symbols").each_slice(4).each do |emojis|
+        .col-sm-3
+          = render partial: "emoji", collection: emojis
